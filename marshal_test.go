@@ -86,6 +86,9 @@ type testDocBasics struct {
 	Uint       uint      `toml:"uint"`
 	String     *string   `toml:"string"`
 	unexported int       `toml:"shouldntBeHere"`
+	Int2       int       `toml:"int2"`
+	Uint2      uint      `toml:"uint2"`
+	Float2     float32   `toml:"float2"`
 }
 
 type testDocBasicLists struct {
@@ -121,8 +124,11 @@ var docData = testDoc{
 		Bool:       true,
 		Date:       time.Date(1979, 5, 27, 7, 32, 0, 0, time.UTC),
 		Float:      123.4,
+		Float2:     12,
 		Int:        5000,
+		Int2:       1000,
 		Uint:       5001,
+		Uint2:      2000,
 		String:     &biteMe,
 		unexported: 0,
 	},

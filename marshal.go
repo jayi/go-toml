@@ -199,9 +199,6 @@ func (e *Encoder) ArraysWithOneElementPerLine(v bool) *Encoder {
 
 func (e *Encoder) marshal(v interface{}) ([]byte, error) {
 	mtype := reflect.TypeOf(v)
-	if mtype.Kind() != reflect.Struct {
-		return []byte{}, errors.New("Only a struct can be marshaled to TOML")
-	}
 	sval := reflect.ValueOf(v)
 	if isCustomMarshaler(mtype) {
 		return callCustomMarshaler(sval)
