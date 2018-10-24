@@ -384,7 +384,7 @@ func (d *Decoder) Decode(v interface{}) error {
 
 func (d *Decoder) unmarshal(v interface{}) error {
 	mtype := reflect.TypeOf(v)
-	if mtype.Kind() != reflect.Ptr || mtype.Elem().Kind() != reflect.Struct {
+	if mtype.Kind() != reflect.Ptr {
 		return errors.New("Only a pointer to struct can be unmarshaled from TOML")
 	}
 
