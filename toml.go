@@ -365,3 +365,29 @@ func LoadFile(path string) (tree *Tree, err error) {
 	defer file.Close()
 	return LoadReader(file)
 }
+
+// LoadFileToI creates a struct from a file.
+func LoadFileToI(path string, i interface{}) error {
+	data, err := ioutil.ReadFile(path)
+	if err != nil {
+		return err
+	}
+	err = Unmarshal(data, i)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+// WriteFile write a struct to file.
+func WriteFile(path string, i interface{}) error {
+	data, err := Marshal(i)
+	if err != nil {
+		return err
+	}
+	err = ioutil.WriteFile(path, data, 0666)
+	if err != nil {
+		return err
+	}
+	return nil
+}

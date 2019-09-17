@@ -1,2 +1,8 @@
 test_program/test_program_bin
 fuzz/
+coverage.txt
+pkg/
+src/
+test_out
+test_program_bin
+toml-test
